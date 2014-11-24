@@ -44,12 +44,25 @@ build-type:          Simple
 
 -- Constraint on the version of Cabal needed to build this package.
 cabal-version:       >=1.10
+
+library
+  ghc-options:         -Wall
+  exposed-modules:     ComplexShapes,
+                       ComplexPlots
+  build-depends:       base >= 4.7 && <5
+  hs-source-dirs:      src
+  default-language:    Haskell2010
  
 executable conform
-  ghc-options:         -Wall
+  ghc-options:         -rtsopts -O2
   hs-source-dirs:      src
   main-is:             Main.hs
   build-depends:       base >= 4.6 && <5,
-                       colour,
-                       haskell-chart
+                       diagrams,
+                       Chart,
+                       Chart-diagrams,
+                       lens,
+                       data-default,
+                       data-default-class,
+                       colour
   default-language:    Haskell2010
